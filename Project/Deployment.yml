@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zeyad-deploy
+  labels:
+    app: zeyad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zeyad
+  template:
+    metadata:
+      labels:
+        app: zeyad
+    spec:
+      containers:
+        - name: zeyad
+          image: zeyad135/lugx:latest
+          ports:
+            - containerPort: 80
